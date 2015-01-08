@@ -1,5 +1,5 @@
 {
-  "name": "JSchema",
+  "name": "jay-schema",
   "version": "0.0.1",
   "description": "Schema builder to validate input",
   "main": "index.js",
@@ -23,5 +23,8 @@
     "mocha": "2.0.1",
     "chai": "1.9.2",
     "chai-as-promised": "4.1.1"
+  },
+  "directories": {
+    "test": "test"
   }
 }
