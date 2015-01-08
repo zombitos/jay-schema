@@ -5,11 +5,11 @@ Schema builder to validate input
 
 ## Installation
 
-  npm install jschema
+  npm install jay-schema
 
 ## Usage
   //Require Module
-  var JSchema = require('jschema');
+  var JSchema = require('jay-schema');
 
   //Schema Creating Options
   var schemaOptions = {
