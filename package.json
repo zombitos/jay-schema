@@ -1,6 +1,6 @@
 {
   "name": "jay-schema",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Schema builder to validate input",
   "main": "index.js",
   "scripts": {
