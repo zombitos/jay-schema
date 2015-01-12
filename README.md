@@ -1,15 +1,15 @@
-JSchema
+IA-Schema
 ===============
 
 Schema builder to validate input
 
 ## Installation
 
-  npm install jay-schema
+  npm install ia-schema
 
 ## Usage
   ```javascript
-  var JSchema = require('jay-schema');
+  var IASchema = require('ia-schema');
   ```
   Schema Creating Options
   ```javascript
@@ -69,7 +69,7 @@ Schema builder to validate input
 
   Schema Creation
   ```javascript
-  var schema = new JSchema(schema, schemaOptions);
+  var schema = new IASchema(schema, schemaOptions);
   ```
   Makes struct succesfully with full data
   ```javascript

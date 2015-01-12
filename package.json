@@ -1,5 +1,5 @@
 {
-  "name": "jay-schema",
+  "name": "iaschema",
   "version": "0.0.2",
   "description": "Schema builder to validate input",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/interactioncr/jschema.git"
+    "url": "git+https://github.com/interactioncr/iaschema.git"
   },
   "keywords": [
     "schema"
