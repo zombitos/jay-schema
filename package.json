@@ -1,5 +1,5 @@
 {
-  "name": "iaschema",
+  "name": "ia-schema",
   "version": "0.0.2",
   "description": "Schema builder to validate input",
   "main": "index.js",
