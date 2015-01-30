@@ -174,3 +174,4 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 * 0.0.1 Initial release
 * 0.0.4 Fixed error delivery to string
+* 0.0.5 Optimized required detection, allow use of object data in default and validator functions, improved Date type validation
