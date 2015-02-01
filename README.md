@@ -315,8 +315,8 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * 0.0.4 Fixed error delivery to string
 * 0.0.5 Optimized required detection, allow use of object data in default and validator functions, improved Date type validation
 * 1.0.0 
-  ----If Default and validator are functions they can use "this" to reference object
-  ----Validator can be an array of accepted values (enum)
-  ----pMakeStruct parameters are now (data, options,extention)
-  ----options omitUndefined(boolean) for pMakeStruct added
+If Default and validator are functions they can use "this" to reference object
+Validator can be an array of accepted values (enum)
+pMakeStruct parameters are now (data, options,extention)
+options omitUndefined(boolean) for pMakeStruct added
 * 1.0.1 Readme Fix
