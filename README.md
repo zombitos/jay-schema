@@ -267,38 +267,38 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
       Array of property names
 
   <strong>+pMakeStruct</strong>
-    Makes struct based on the schema provided
+  Makes struct based on the schema provided
 
-    Receives:
-      Object to validate (if it has properties that are not defined on the schema they will be ignored and not included in the result)
+  Receives:
+    Object to validate (if it has properties that are not defined on the schema they will be ignored and not included in the result)
 
-      Options Object:
-        omitUndefined(Boolean, default false), if omit undefined is true all schema properties that are undefined in the object to validate will no subjected to validation and will be ignored in the result
+    Options Object:
+      omitUndefined(Boolean, default false), if omit undefined is true all schema properties that are undefined in the object to validate will no subjected to validation and will be ignored in the result
 
-      Extention Object(default empty object), object to validate will be extendend with this BEFORE it's validated, so properties should also be defined in schema and they will be validated
+    Extention Object(default empty object), object to validate will be extendend with this BEFORE it's validated, so properties should also be defined in schema and they will be validated
 
     Returns
       promise, see below
 
-    ```javascript
-    schema.pMakeStruct({
-      name: 'Jose',
-      lastname: 'Rodriguez'
-    }).then(function(struct){
-        //Struct will be 
-        //{
-          //name: 'Jose',
-          //lastname: 'Rodriguez',
-          //createdAt: Date Object,
-          //deletedAt: null
-        //}
-        console.log(struct);
-      },function(err){
+  ```javascript
+  schema.pMakeStruct({
+    name: 'Jose',
+    lastname: 'Rodriguez'
+  }).then(function(struct){
+      //Struct will be 
+      //{
+        //name: 'Jose',
+        //lastname: 'Rodriguez',
+        //createdAt: Date Object,
+        //deletedAt: null
+      //}
+      console.log(struct);
+    },function(err){
 
-        //Array of all validation errors
-        console.log(err);
-        });
-    ```
+      //Array of all validation errors
+      console.log(err);
+      });
+  ```
 
 ## Tests
 
