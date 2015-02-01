@@ -12,10 +12,16 @@ var JSchema = require('../index');
 var schema = null;
 var goodSchema = {
   name: {
+    type: String,
     required: true,
   },
   lastname: {
+    type: String,
     required: true
+  },
+  continent:{
+    type: String,
+    validator:['america','europe','africa','asia','oceania','antartica']
   },
   phone: {
     type: Number,
@@ -33,11 +39,22 @@ var goodSchema = {
     }
   },
   gender: {
-    type: Boolean
+    type: Boolean,
+    default: true
+  },
+  genderString:{
+    type:String,
+    default: function(){
+      if(this.gender === true){
+        return 'female';
+      }else{
+        return 'male';
+      }
+    },
+    validator:['female','male']
   },
   id: {
-    type: String,
-    index: true
+    type: String
   },
   createdAt: {
     type: Date,
@@ -86,9 +103,22 @@ describe('Failed Struct Tests, No Schema Options', function() {
         phone: '555',
         email: 'j@interaction',
         id: 111111111,
-        gender: 'true'
+        gender: 'false'
       })
       .should.be.rejectedWith('email')
+      .notify(done);
+  });
+  it('Field not passing due to custom validator as array no type error formater', function(done) {
+    schema.pMakeStruct({
+        name: 'Jose',
+        lastname: 'Rodriguez',
+        phone: '555',
+        email: 'j@interaction.cr',
+        id: 111111111,
+        gender: 'false',
+        continent:'north america'
+      })
+      .should.be.rejectedWith('continent')
       .notify(done);
   });
   it('Incorrect type field no type error formater', function(done) {
@@ -132,6 +162,19 @@ describe('Failed Struct Tests, with Schema Options', function() {
       .should.be.rejectedWith('email is not of correct data type')
       .notify(done);
   });
+  it('Field not passing due to custom validator as array with type error formater', function(done) {
+    schema.pMakeStruct({
+        name: 'Jose',
+        lastname: 'Rodriguez',
+        phone: '555',
+        email: 'j@interaction.cr',
+        id: 111111111,
+        gender: 'true',
+        continent:'south america'
+      })
+      .should.be.rejectedWith('continent is not of correct data type')
+      .notify(done);
+  });
   it('Incorrect type field with type error formater', function(done) {
     schema.pMakeStruct({
         name: 'Jose',
@@ -155,7 +198,9 @@ describe('Creating Structs Succesfully', function() {
         name: 'Jose',
         lastname: 'Rodriguez',
         phone: 555,
-        gender: true,
+        gender: false,
+        continent:'america',
+        genderString:'male',
         email: 'j@interaction.cr',
         createdAt: new Date(),
         deletedAt: null,
@@ -170,13 +215,26 @@ describe('Creating Structs Succesfully', function() {
         name: 'Jose',
         lastname: 'Rodriguez',
         phone: 555,
-        gender: true,
+        gender: false,
         email: 'j@interaction.cr',
         id: '111111111'
       })
       .should.eventually.be.a('object')
       .and.have.property('createdAt')
       .and.be.a('date')
+      .notify(done);
+  });
+  it('makes struct succesfully without default fields using this in function', function(done) {
+    schema.pMakeStruct({
+        name: 'Jose',
+        lastname: 'Rodriguez',
+        phone: 555,
+        gender: false,
+        email: 'j@interaction.cr',
+        id: '111111111'
+      })
+      .should.eventually.be.a('object')
+      .and.have.property('genderString','male')
       .notify(done);
   });
   it('makes struct succesfully converting data types where it makes sense', function(done) {
@@ -191,6 +249,15 @@ describe('Creating Structs Succesfully', function() {
       .should.eventually.be.a('object')
       .and.have.property('gender')
       .and.be.a('boolean')
+      .notify(done);
+  });
+  it('makes struct succesfully with omitUndefined option', function(done) {
+    schema.pMakeStruct({
+        name: 'Jose Pablo',
+        lastname: 'Rodriguez Masis'
+      },{omitUndefined:true})
+      .should.eventually.be.a('object')
+      .and.have.property('name', 'Jose Pablo')
       .notify(done);
   });
 });

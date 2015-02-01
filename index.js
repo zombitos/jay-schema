@@ -80,10 +80,10 @@ module.exports = function JSchema(schema, options) {
    ---Success returns data object
    ---Fail returns error (may be formated or be just key string) 
    */
-  this.pMakeStruct = function pMakeStruct(data, extention, options) {
+  this.pMakeStruct = function pMakeStruct(data, options,extention) {
     return structFactory(
       this,
       _options.requiredErrorFormatter,
-      _options.typeErrorFormatter)(data, extention, options);
+      _options.typeErrorFormatter)(data, options,extention);
   };
 };
