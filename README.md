@@ -207,13 +207,13 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
 
   Schema fields support the following properties
 
-    <strong>required (Boolean, default false):</strong> if true the object to validate must contain this property. Exception with omitUndefined option, see below.
+  <strong>required (Boolean, default false):</strong> if true the object to validate must contain this property. Exception with omitUndefined option, see below.
 
-    <strong>default:</strong> can be a fix value or a function that returns a value. See details above.
+  <strong>default:</strong> can be a fix value or a function that returns a value. See details above.
 
-    <strong>validator:</strong> can be and array of valued or a function. See details above.
+  <strong>validator:</strong> can be and array of valued or a function. See details above.
 
-    <strong>type:</strong> the data type the object's property should be. See details above.
+  <strong>type:</strong> the data type the object's property should be. See details above.
 
   ```javascript
   var schema = {
