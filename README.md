@@ -54,13 +54,13 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
     Receives the name of the missing property.
     <br>
     Returns the error in the format you need.
-    ```javascript
-    var requiredErrorFormatter= function(key) {
-      var err = {};
-      err[key] = 'this field is required';
-      return err;
-    };
-    ```
+  ```javascript
+  var requiredErrorFormatter= function(key) {
+    var err = {};
+    err[key] = 'this field is required';
+    return err;
+  };
+  ```
   <br>
   <br>
   <br>
@@ -71,13 +71,13 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
     Receives the name of the property, and the type it should be.
     <br>
     Returns the error in the format you need.
-    ```javascript
-    var typeErrorFormatter= function(key, type) {
-      var err = {};
-      err[key] = 'should be of type '+type;
-      return err;
-    };
-    ```
+  ```javascript
+  var typeErrorFormatter= function(key, type) {
+    var err = {};
+    err[key] = 'should be of type '+type;
+    return err;
+  };
+  ```
 ## Data types
   IA-Schema supports validation for the following types:
 
