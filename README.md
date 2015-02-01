@@ -46,28 +46,38 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
 ## Schema Options
   IA-Schema uses predefined functions to format errors.
 
-  --requiredErrorFormatter: 
+
+  requiredErrorFormatter: 
+    <br>
     Called when a required field is undefined, null, or an empty string.
+    <br>
     Receives the name of the missing property.
+    <br>
     Returns the error in the format you need.
-    ```javascript
-    var requiredErrorFormatter= function(key) {
-      var err = {};
-      err[key] = 'this field is required';
-      return err;
-    };
-    ```
-  --typeErrorFormatter: 
+  ```javascript
+  var requiredErrorFormatter= function(key) {
+    var err = {};
+    err[key] = 'this field is required';
+    return err;
+  };
+  ```
+  <br>
+  <br>
+  <br>
+  typeErrorFormatter: 
+    <br>
     Called when a field is not of the correct data type.
+    <br>
     Receives the name of the property, and the type it should be.
+    <br>
     Returns the error in the format you need.
-    ```javascript
-    var typeErrorFormatter= function(key, type) {
-      var err = {};
-      err[key] = 'should be of type '+type;
-      return err;
-    };
-    ```
+  ```javascript
+  var typeErrorFormatter= function(key, type) {
+    var err = {};
+    err[key] = 'should be of type '+type;
+    return err;
+  };
+  ```
 ## Data types
   IA-Schema supports validation for the following types:
 
@@ -88,6 +98,7 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
 ## Validator
   
   You can use the validator property as a function or as an enum array.
+  <br>
   If the validation does not pass the function should return false, otherwise
   it should return the validated property value.
 
@@ -109,7 +120,7 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
     }
   }
   ```
-  If <strong>type</strong> is specified in the field and the validator returns 
+  If <strong>type</strong> is specified in the field and the validator returns
   a diferent data type the validation will fail. You can however use validator
   without specifying any data type.
 
@@ -195,10 +206,14 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
   If not options are given default error formaters return the name of the property.
 
   Schema fields support the following properties
-    --required (Boolean, default false): if true the object to validate must contain this property. Exception with omitUndefined option, see below.
-    --default: can be a fix value or a function that returns a value. See details above.
-    --validator: can be and array of valued or a function. See details above.
-    --type: the data type the object's property should be. See details above.
+
+  <strong>required (Boolean, default false):</strong> if true the object to validate must contain this property. Exception with omitUndefined option, see below.
+
+  <strong>default:</strong> can be a fix value or a function that returns a value. See details above.
+
+  <strong>validator:</strong> can be and array of valued or a function. See details above.
+
+  <strong>type:</strong> the data type the object's property should be. See details above.
 
   ```javascript
   var schema = {
@@ -230,58 +245,60 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
   IA Schema is promise oriented all functions starting with p the capital letter 
   will return a promise
 
-  +path
+  <strong>+path</strong>
     Fetches a copy of the schema property
     Receives:
-      --Property key (string)
+      Property key (string)
     Returns
-      --Object
+      Object
 
-  +eachPath
+  <strong>+eachPath</strong>
     Iterates over each schema property, with the defined fuction
     Receives:
-      --Iterator (function): receives value and key
+      Iterator (function): receives value and key
     Returns
-      --undefined
+      undefined
 
-  +requiredPaths
+  <strong>+requiredPaths</strong>
     Returns an array of keys of all the schema properties thar are required
     Receives:
-      --None
+      None
     Returns
-      --Array of property names
+      Array of property names
 
-  +pMakeStruct
-    Makes struct based on the schema provided
-    Receives:
-      --Object to validate (if it has properties that are not defined on the schema they will be ignored and not included in the result)
+  <strong>+pMakeStruct</strong>
+  Makes struct based on the schema provided
 
-      --Options Object:
-        -omitUndefined(Boolean, default false), if omit undefined is true all schema properties that are undefined in the object to validate will no subjected to validation and will be ignored in the result
+  Receives:
+  Object to validate (if it has properties that are not defined on the schema they will be ignored and not included in the result)
 
-      --Extention Object(default empty object), object to validate will be extendend with this BEFORE it's validated, so properties should also be defined in schema and they will be validated
-    Returns
-      --promise, see below
+  Options Object:
+    omitUndefined(Boolean, default false), if omit undefined is true all schema properties that are undefined in the object to validate will no subjected to validation and will be ignored in the result
 
-    ```javascript
-    schema.pMakeStruct({
-      name: 'Jose',
-      lastname: 'Rodriguez'
-    }).then(function(struct){
-        //Struct will be 
-        //{
-          //name: 'Jose',
-          //lastname: 'Rodriguez',
-          //createdAt: Date Object,
-          //deletedAt: null
-        //}
-        console.log(struct);
-      },function(err){
+  Extention Object(default empty object), object to validate will be extendend with this BEFORE it's validated, so properties should also be defined in schema and they will be validated
 
-        //Array of all validation errors
-        console.log(err);
-        });
-    ```
+  Returns
+    promise, see below
+
+  ```javascript
+  schema.pMakeStruct({
+    name: 'Jose',
+    lastname: 'Rodriguez'
+  }).then(function(struct){
+      //Struct will be 
+      //{
+        //name: 'Jose',
+        //lastname: 'Rodriguez',
+        //createdAt: Date Object,
+        //deletedAt: null
+      //}
+      console.log(struct);
+    },function(err){
+
+      //Array of all validation errors
+      console.log(err);
+      });
+  ```
 
 ## Tests
 
@@ -302,3 +319,4 @@ Add unit tests for any new or changed functionality. Lint and test your code.
   ----Validator can be an array of accepted values (enum)
   ----pMakeStruct parameters are now (data, options,extention)
   ----options omitUndefined(boolean) for pMakeStruct added
+* 1.0.1 Readme Fix
