@@ -320,3 +320,4 @@ Validator can be an array of accepted values (enum)
 pMakeStruct parameters are now (data, options,extention)
 options omitUndefined(boolean) for pMakeStruct added
 * 1.0.1 Readme Fix
+* 1.0.4 This scope in default and validator fix

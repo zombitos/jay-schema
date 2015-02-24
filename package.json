@@ -1,6 +1,6 @@
 {
   "name": "ia-schema",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Schema builder to validate input",
   "main": "index.js",
   "scripts": {
