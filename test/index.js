@@ -19,9 +19,9 @@ var goodSchema = {
     type: String,
     required: true
   },
-  continent:{
+  continent: {
     type: String,
-    validator:['america','europe','africa','asia','oceania','antartica']
+    validator: ['america', 'europe', 'africa', 'asia', 'oceania', 'antartica']
   },
   phone: {
     type: Number,
@@ -42,16 +42,20 @@ var goodSchema = {
     type: Boolean,
     default: true
   },
-  genderString:{
-    type:String,
-    default: function(){
-      if(this.gender === true){
+  genderString: {
+    type: String,
+    default: function() {
+      if (this.gender === true) {
         return 'female';
-      }else{
+      } else {
         return 'male';
       }
     },
-    validator:['female','male']
+    validator: ['female', 'male']
+  },
+  categories: {
+    type: Array,
+    validator: ['a', 'b', 'c']
   },
   id: {
     type: String
@@ -116,7 +120,7 @@ describe('Failed Struct Tests, No Schema Options', function() {
         email: 'j@interaction.cr',
         id: 111111111,
         gender: 'false',
-        continent:'north america'
+        continent: 'north america'
       })
       .should.be.rejectedWith('continent')
       .notify(done);
@@ -131,6 +135,19 @@ describe('Failed Struct Tests, No Schema Options', function() {
         gender: 'hola'
       })
       .should.be.rejectedWith('gender')
+      .notify(done);
+  });
+  it('Incorrect type field no type error formater', function(done) {
+    schema.pMakeStruct({
+        name: 'Jose',
+        lastname: 'Rodriguez',
+        phone: '555',
+        email: 'j@interaction.cr',
+        id: 111111111,
+        gender: 'false',
+        categories: ['r']
+      })
+      .should.be.rejectedWith('categories')
       .notify(done);
   });
 });
@@ -170,7 +187,7 @@ describe('Failed Struct Tests, with Schema Options', function() {
         email: 'j@interaction.cr',
         id: 111111111,
         gender: 'true',
-        continent:'south america'
+        continent: 'south america'
       })
       .should.be.rejectedWith('continent is not of correct data type')
       .notify(done);
@@ -199,11 +216,12 @@ describe('Creating Structs Succesfully', function() {
         lastname: 'Rodriguez',
         phone: 555,
         gender: false,
-        continent:'america',
-        genderString:'male',
+        continent: 'america',
+        genderString: 'male',
         email: 'j@interaction.cr',
         createdAt: new Date(),
         deletedAt: null,
+        categories: ['a'],
         id: '111111111'
       })
       .should.eventually.be.a('object')
@@ -234,7 +252,7 @@ describe('Creating Structs Succesfully', function() {
         id: '111111111'
       })
       .should.eventually.be.a('object')
-      .and.have.property('genderString','male')
+      .and.have.property('genderString', 'male')
       .notify(done);
   });
   it('makes struct succesfully converting data types where it makes sense', function(done) {
@@ -255,7 +273,9 @@ describe('Creating Structs Succesfully', function() {
     schema.pMakeStruct({
         name: 'Jose Pablo',
         lastname: 'Rodriguez Masis'
-      },{omitUndefined:true})
+      }, {
+        omitUndefined: true
+      })
       .should.eventually.be.a('object')
       .and.have.property('name', 'Jose Pablo')
       .notify(done);
