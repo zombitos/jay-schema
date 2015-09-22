@@ -1,6 +1,6 @@
 {
-  "name": "ia-schema",
-  "version": "1.0.7",
+  "name": "z-schema",
+  "version": "0.0.1",
   "description": "Schema builder to validate input",
   "main": "index.js",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/interactioncr/iaschema.git"
+    "url": "git+https://github.com/zombitos/z-schema.git"
   },
   "keywords": [
     "schema"
   ],
-  "author": "Jay <jprodma@gmail.com> (http://www.interaction.cr/)",
+  "author": "Jay <jprodma@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "when": "3.5.*",
+    "when": "3.7.*",
     "underscore": "1.7.*"
   },
   "engines": {
