@@ -1,7 +1,7 @@
-IA-Schema
+Z-Schema
 ===============
 
-IA Schema is and object validation module that can be used stand alone or
+Z Schema is and object validation module that can be used stand alone or
 as a data base schema with <a href='https://github.com/interactioncr/iamongo', target='_blank'>IA-Mongo</a>.
 
 ## Installation
@@ -10,7 +10,7 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
 
 ## Basic Usage
   ```javascript
-  var IASchema = require('ia-schema');
+  var ZSchema = require('z-schema');
   ```
   ```javascript
   var schemaOptions = {
@@ -44,7 +44,7 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
   };
   ```
 ## Schema Options
-  IA-Schema uses predefined functions to format errors.
+  Z-Schema uses predefined functions to format errors.
 
 
   requiredErrorFormatter: 
@@ -79,7 +79,7 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
   };
   ```
 ## Data types
-  IA-Schema supports validation for the following types:
+  Z-Schema supports validation for the following types:
 
   ```javascript
   type: Number (Accepts and transforms numbers send as strings,)
@@ -139,7 +139,7 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
     }
   }
   ```
-  IA Schema doesn't currently support async default or validator functions.
+  Z Schema doesn't currently support async default or validator functions.
 
   To use validator as enum just place the array of accepted values
 
@@ -187,7 +187,7 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
     }
   }
   ```
-  IA Schema doesn't currently support async default or validator functions.
+  Z Schema doesn't currently support async default or validator functions.
 
 
 ## Schema Creation
@@ -238,11 +238,11 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
   ```
   Creating new Schema:
   ```javascript
-  var schema = new IASchema(schema, schemaOptions);
+  var schema = new ZSchema(schema, schemaOptions);
   ```
 ## Available methods
 
-  IA Schema is promise oriented all functions starting with p the capital letter 
+  Z Schema is promise oriented all functions starting with p the capital letter 
   will return a promise
 
   <strong>+path</strong>
@@ -311,14 +311,4 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Release History
 
-* 0.0.1 Initial release
-* 0.0.4 Fixed error delivery to string
-* 0.0.5 Optimized required detection, allow use of object data in default and validator functions, improved Date type validation
-* 1.0.0 
-If Default and validator are functions they can use "this" to reference object
-Validator can be an array of accepted values (enum)
-pMakeStruct parameters are now (data, options,extention)
-options omitUndefined(boolean) for pMakeStruct added
-* 1.0.1 Readme Fix
-* 1.0.4 This scope in default and validator fix
-* 1.0.7 Node version fixed
+* 0.0.1 Frok from IA-Schema, fixed number validation for null
