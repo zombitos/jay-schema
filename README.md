@@ -6,7 +6,7 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
 
 ## Installation
 
-  npm install ia-schema
+  npm install z-schema
 
 ## Basic Usage
   ```javascript
