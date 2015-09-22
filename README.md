@@ -1,16 +1,16 @@
-Z-Schema
+Jay-Schema
 ===============
 
-Z Schema is and object validation module that can be used stand alone or
-as a data base schema with <a href='https://github.com/interactioncr/iamongo', target='_blank'>IA-Mongo</a>.
+Jay-Schema is and object validation module that can be used stand alone or
+as a data base schema with <a href='https://github.com/zombitos/jay-mongo', target='_blank'>Jay-Mongo</a>.
 
 ## Installation
 
-  npm install z-schema
+  npm install Jay-Schema
 
 ## Basic Usage
   ```javascript
-  var ZSchema = require('z-schema');
+  var Jay-Schema = require('jay-schema');
   ```
   ```javascript
   var schemaOptions = {
@@ -44,7 +44,7 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
   };
   ```
 ## Schema Options
-  Z-Schema uses predefined functions to format errors.
+  Jay-Schema uses predefined functions to format errors.
 
 
   requiredErrorFormatter: 
@@ -79,7 +79,7 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
   };
   ```
 ## Data types
-  Z-Schema supports validation for the following types:
+  Jay-Schema supports validation for the following types:
 
   ```javascript
   type: Number (Accepts and transforms numbers send as strings,)
@@ -139,7 +139,7 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
     }
   }
   ```
-  Z Schema doesn't currently support async default or validator functions.
+  Jay-Schema doesn't currently support async default or validator functions.
 
   To use validator as enum just place the array of accepted values
 
@@ -187,7 +187,7 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
     }
   }
   ```
-  Z Schema doesn't currently support async default or validator functions.
+  Jay-Schema doesn't currently support async default or validator functions.
 
 
 ## Schema Creation
@@ -238,11 +238,11 @@ as a data base schema with <a href='https://github.com/interactioncr/iamongo', t
   ```
   Creating new Schema:
   ```javascript
-  var schema = new ZSchema(schema, schemaOptions);
+  var schema = new Jay-Schema(schema, schemaOptions);
   ```
 ## Available methods
 
-  Z Schema is promise oriented all functions starting with p the capital letter 
+  Jay-Schema is promise oriented all functions starting with p the capital letter 
   will return a promise
 
   <strong>+path</strong>
@@ -311,4 +311,4 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Release History
 
-* 0.0.1 Frok from IA-Schema, fixed number validation for null
+* 1.0.1 Fixed number validation for null
